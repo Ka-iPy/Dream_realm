@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Realm DnD | A Community for All</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Font Settings */
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6, .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Animated Background Gradient */
+        .fantasy-bg {
+            background: linear-gradient(180deg, #0f172a 0%, #1e3a8a 20%, #38bdf8 50%, #e0f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 0% 50%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* Floating Animation */
+        .float { animation: float 6s ease-in-out infinite; }
+        .float-delayed { animation: float 6s ease-in-out 3s infinite; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6); /* Darker glass for better contrast with images */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Nav Glass */
+        .nav-glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Text Glow */
+        .glow-text {
+            text-shadow: 0 0 15px rgba(147, 197, 253, 0.6);
+        }
+
+        /* Image Styles */
+        .card-img {
+            transition: transform 0.5s ease;
+        }
+        .group:hover .card-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="fantasy-bg text-white min-h-screen relative">
+
+    <!-- Improved Navigation Header -->
+    <nav class="fixed top-0 left-0 w-full z-50 nav-glass transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo / Home Link -->
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="Dreamy_realm.jpeg"
+                     alt="Logo"
+                     class="w-12 h-12 rounded-full border-2 border-blue-500 group-hover:rotate-12 transition-transform duration-300"
+                     onerror="this.src='https://placehold.co/100x100/1e293b/fbbf24?text=D20'">
+                <span class="font-cinzel font-bold text-xl tracking-widest text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                    Dream Realm
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 font-cinzel text-sm font-bold tracking-wide">
+                <a href="#home" class="text-blue-200 hover:text-white hover:shadow-[0_2px_0_0_currentColor] pb-1 transition-all">Home</a>
+                <a href="#party" class="text-blue-200 hover:text-white hover:shadow-[0_2px_0_0_currentColor] pb-1 transition-all">The Party</a>
+                <a href="#arsenal" class="text-blue-200 hover:text-white hover:shadow-[0_2px_0_0_currentColor] pb-1 transition-all">Arsenal</a>
+                <a href="#discord" class="px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-all shadow-lg hover:shadow-blue-500/30">
+                    Join Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Icon (Visual only for demo) -->
+            <button class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative z-10 container mx-auto px-4 pt-40 pb-32 flex flex-col items-center text-center">
+
+        <!-- Hero Image Container -->
+        <div class="mb-10 relative group cursor-pointer" data-aos="zoom-in" data-aos-duration="1200">
+            <div class="absolute -inset-4 bg-blue-500 blur-2xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity duration-700"></div>
+            <img id="d20"
+                 src="https://images.unsplash.com/photo-1640652782299-0428875348f6?q=80&w=600&auto=format&fit=crop"
+                 alt="Dream Realm D20"
+                 class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white/20 shadow-2xl float relative z-10"
+                 onerror="this.src='https://placehold.co/600x600/1e293b/FFF?text=Crit+Fail'">
+        </div>
+
+        <h1 class="text-6xl md:text-8xl font-black mb-6 glow-text tracking-tighter" data-aos="fade-up" data-aos-delay="200">
+            Dream Realm
+        </h1>
+        <p class="text-xl md:text-3xl text-blue-100 max-w-3xl mb-12 font-light leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+            Roll initiative in a world where the sky is just the beginning.
+        </p>
+
+        <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up" data-aos-delay="600">
+            <a href="#party" class="px-8 py-4 bg-white text-slate-900 font-bold font-cinzel rounded-lg hover:bg-gray-100 transition-all shadow-xl">
+                Explore the Realm
+            </a>
+            <a href="#discord" class="px-8 py-4 border border-white/30 bg-black/20 backdrop-blur-sm text-white font-bold font-cinzel rounded-lg hover:bg-black/40 transition-all">
+                Find a Table
+            </a>
+        </div>
+    </header>
+
+    <!-- The Party / Diversity Section -->
+    <section id="party" class="relative z-10 py-24">
+        <!-- Divider -->
+        <div class="absolute top-0 left-0 w-full overflow-hidden leading-none transform rotate-180 -mt-1">
+            <svg class="relative block w-full h-[60px] fill-blue-900/20" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Text Content -->
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-8 text-yellow-400 drop-shadow-lg">A Seat for Every Soul</h2>
+                    <p class="text-lg md:text-xl text-blue-50 mb-6 leading-relaxed">
+                        From the deepest dwarven mines to the highest elven spires, the Dream Realm welcomes all. We believe the best stories are told when diverse voices gather around the fire.
+                    </p>
+                    <p class="text-lg md:text-xl text-blue-200 leading-relaxed">
+                        Veteran dungeon masters, first-time rollers, roleplay enthusiasts, and combat tacticians—your chair is waiting at our tavern.
+                    </p>
+                </div>
+
+                <!-- Image Content (Replaces Silhouette SVG) -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-purple-600 rounded-2xl blur opacity-30 animate-pulse"></div>
+                    <div class="glass-card p-2 rounded-2xl overflow-hidden relative">
+                        <img src="Community.jpeg"
+                             alt="Diverse group playing games"
+                             class="w-full h-auto rounded-xl shadow-2xl hover:scale-105 transition-transform duration-700"
+                             onerror="this.src='https://placehold.co/800x600/2d3748/a0aec0?text=The+Gathering'">
+
+                        <!-- Overlay Caption -->
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-8 pt-20">
+                            <p class="text-white font-cinzel text-sm tracking-widest uppercase">The Tavern • Friday Nights</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arsenal / Classes Section -->
+    <section id="arsenal" class="relative z-10 py-24 bg-slate-900/50 backdrop-blur-sm">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold font-cinzel text-white mb-4">Choose Your Path</h2>
+                <div class="h-1 w-24 bg-yellow-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Wizard Card -->
+                <div class="group relative h-96 rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-aos="flip-left" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1630325025516-44471329f98f?q=80&w=600&auto=format&fit=crop"
+                         class="absolute inset-0 w-full h-full object-cover card-img"
+                         alt="Wizard Spellbook"
+                         onerror="this.src='https://placehold.co/400x600/4c1d95/e9d5ff?text=Magic'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/40 to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-2xl font-bold text-purple-200 mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Arcane Arts</h3>
+                        <p class="text-purple-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-75">
+                            Wield reality-bending spells and uncover ancient secrets lost to time.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Warrior Card -->
+                <div class="group relative h-96 rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-aos="flip-left" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1595505350887-28c513e78b63?q=80&w=600&auto=format&fit=crop"
+                         class="absolute inset-0 w-full h-full object-cover card-img"
+                         alt="Sword and Steel"
+                         onerror="this.src='https://placehold.co/400x600/7f1d1d/fecaca?text=Combat'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-red-900/90 via-red-900/40 to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-2xl font-bold text-red-200 mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">Martial Prowess</h3>
+                        <p class="text-red-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-75">
+                            Stand as the bulwark between civilization and the monsters in the dark.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ranger Card -->
+                <div class="group relative h-96 rounded-2xl overflow-hidden shadow-xl cursor-pointer" data-aos="flip-left" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1526510335238-b928779b028a?q=80&w=600&auto=format&fit=crop"
+                         class="absolute inset-0 w-full h-full object-cover card-img"
+                         alt="Map and Compass"
+                         onerror="this.src='https://placehold.co/400x600/064e3b/a7f3d0?text=Exploration'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/90 via-emerald-900/40 to-transparent p-8 flex flex-col justify-end">
+                        <h3 class="text-2xl font-bold text-emerald-200 mb-2 translate-y-4 group-hover:translate-y-0 transition-transform">The Wilds</h3>
+                        <p class="text-emerald-100 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-75">
+                            Navigate the unknown, track elusive beasts, and master the frontier.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer id="discord" class="bg-[#0a0a0c] relative z-20 py-24 text-center border-t border-slate-800">
+        <div class="container mx-auto px-4" data-aos="fade-up">
+
+            <!-- Discord Logo Animation -->
+            <div class="inline-block p-6 rounded-full bg-[#5865F2]/20 mb-8 ring-1 ring-[#5865F2]/50 hover:scale-110 transition-transform duration-300">
+                <img src="Discord-Symbol.png"
+                     alt="Discord" class="w-16 h-16 object-contain">
+            </div>
+
+            <h2 class="text-4xl md:text-5xl font-cinzel font-bold text-white mb-6">Your Adventure Awaits</h2>
+            <p class="text-slate-400 max-w-xl mx-auto mb-12 text-lg">
+                Don't adventure alone. Our tavern is buzzing with activity 24/7. Join the Dream Realm Discord and roll your first check today.
+            </p>
+
+            <a href="#" class="inline-flex items-center bg-[#5865F2] text-white font-bold py-5 px-10 rounded-xl transition-all transform hover:scale-105 hover:shadow-[0_0_30px_rgba(88,101,242,0.6)] text-xl">
+                Join the Community
+            </a>
+
+            <div class="mt-16 pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center text-slate-600 text-sm">
+                <p>&copy; 2023 Dream Realm DnD.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-slate-400">Code of Conduct</a>
+                    <a href="#" class="hover:text-slate-400">Privacy</a>
+                    <a href="#" class="hover:text-slate-400">Contact DM</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Script Initialization -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: false,
+            mirror: false,
+            offset: 50,
+            duration: 1000,
+            easing: 'ease-out-cubic',
+        });
+    </script>
+    <script>
+document.getElementById("d20").addEventListener("click", function() {
+    const roll = Math.floor(Math.random() * 20) + 1;
+
+    let text = roll;
+    if (roll === 1) text = "Nat 1";
+    if (roll === 20) text = "Nat 20!";
+
+    this.src = `https://placehold.co/600x600/1e293b/FFF?text=${encodeURIComponent(text)}`;
+});
+</script>
+
+</body>
+</html>
